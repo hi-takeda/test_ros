@@ -1,3 +1,0 @@
-<launch>
-  <node name="spin_in_multi_threads"   pkg="spin_test" type="spin_in_multi_threads" output="screen" />
-</launch>

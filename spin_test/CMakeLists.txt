@@ -2,14 +2,13 @@ cmake_minimum_required(VERSION 2.8.3)
 project(spin_test)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+# add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  
 )
 
 ## System dependencies are found with CMake's conventions
@@ -132,7 +131,10 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(spin_in_multi_threads src/spin_in_multi_threads.cpp)
+add_executable(spin_once src/spin_once.cpp)
+add_executable(spin src/spin.cpp)
+add_executable(async_spinner src/async_spinner.cpp)
+add_executable(publisher src/publisher.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -145,9 +147,18 @@ add_executable(spin_in_multi_threads src/spin_in_multi_threads.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(spin_in_multi_threads
+target_link_libraries(spin_once
   ${catkin_LIBRARIES}
-)
+  )
+target_link_libraries(spin
+  ${catkin_LIBRARIES}
+  )
+target_link_libraries(async_spinner
+  ${catkin_LIBRARIES}
+  )
+target_link_libraries(publisher
+  ${catkin_LIBRARIES}
+  )
 
 #############
 ## Install ##

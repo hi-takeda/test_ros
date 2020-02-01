@@ -1,0 +1,4 @@
+<launch>
+  <node name="publisher"   pkg="spin_test" type="publisher" output="screen" />
+  <node name="async_spinner"   pkg="spin_test" type="async_spinner" output="screen" />
+</launch>
