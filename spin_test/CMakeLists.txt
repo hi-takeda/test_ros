@@ -134,6 +134,7 @@ include_directories(
 add_executable(spin_once src/spin_once.cpp)
 add_executable(spin src/spin.cpp)
 add_executable(async_spinner src/async_spinner.cpp)
+add_executable(timer src/timer.cpp)
 add_executable(publisher src/publisher.cpp)
 
 ## Rename C++ executable without prefix
@@ -154,6 +155,9 @@ target_link_libraries(spin
   ${catkin_LIBRARIES}
   )
 target_link_libraries(async_spinner
+  ${catkin_LIBRARIES}
+  )
+target_link_libraries(timer
   ${catkin_LIBRARIES}
   )
 target_link_libraries(publisher
